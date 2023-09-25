@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FirstDecision.API.Models;
+namespace FirstDecision.Model.Entities;
 
 [Index("Email", Name = "UQ__Pessoa__A9D105345444188A", IsUnique = true)]
 public partial class Pessoa

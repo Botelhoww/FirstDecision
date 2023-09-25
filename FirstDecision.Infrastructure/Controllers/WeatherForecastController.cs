@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace FirstDecision.API.Controllers
+namespace FirstDecision.Infrastructure.Controllers
 {
     [ApiController]
     [Route("[controller]")]

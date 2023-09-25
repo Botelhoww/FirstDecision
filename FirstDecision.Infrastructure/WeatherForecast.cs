@@ -1,4 +1,4 @@
-namespace FirstDecision.API
+namespace FirstDecision.Infrastructure
 {
     public class WeatherForecast
     {

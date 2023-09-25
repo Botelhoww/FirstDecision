@@ -1,6 +1,8 @@
-using FirstDecision.API.Interfaces;
-using FirstDecision.API.Models;
-using FirstDecision.API.Repositories;
+using FirstDecision.Business.Services;
+using FirstDecision.Business.Services.Interfaces;
+using FirstDecision.DataLayer.Context;
+using FirstDecision.DataLayer.Repositories;
+using FirstDecision.DataLayer.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +17,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IPessoaRepository, PessoaRepository>();
+builder.Services.AddScoped<IPessoaService, PessoaService>();
 
 var app = builder.Build();
 

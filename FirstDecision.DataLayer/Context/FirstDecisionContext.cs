@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FirstDecision.Model.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace FirstDecision.API.Models;
+namespace FirstDecision.DataLayer.Context;
 
 public partial class FirstDecisionContext : DbContext
 {
