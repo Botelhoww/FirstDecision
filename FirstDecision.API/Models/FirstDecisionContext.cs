@@ -18,7 +18,7 @@ public partial class FirstDecisionContext : DbContext
             entity.HasKey(e => e.Id).HasName("PK__Pessoa__3214EC27898C14E2");
         });
 
-        OnModelCreatingPartial(modelBuilder);
+        OnModelCreatingPartial(modelBuilder); 
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
