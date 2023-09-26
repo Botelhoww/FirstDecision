@@ -32,14 +32,6 @@ namespace FirstDecision.Business.Validators
                 RuleFor(p => p.Cep)
                 .MaximumLength(10)
                     .WithMessage("CEP deve ter no máximo 10 caracteres");
-
-                RuleFor(p => p.Cpf)
-                .MaximumLength(11)
-                    .WithMessage("CPF deve ter no máximo 11 caracteres");
-
-                RuleFor(p => p.Cnpj)
-                .MaximumLength(14)
-                    .WithMessage("CNPJ deve ter no máximo 14 caracteres");
             });
         }
     }

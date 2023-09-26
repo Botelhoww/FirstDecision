@@ -1,4 +1,5 @@
-﻿using FirstDecision.Business.Services.Interfaces;
+﻿using FirstDecision.Business.Extensions;
+using FirstDecision.Business.Services.Interfaces;
 using FirstDecision.DataLayer.Repositories.Interfaces;
 using FirstDecision.Model.Entities;
 using FluentValidation;
@@ -15,17 +16,6 @@ namespace FirstDecision.Business.Services
             _pessoaRepository = pessoaRepository;
             _pessoaValidator = pessoaValidator;
         }
-
-        public Task Alterar(Pessoa pessoa)
-        {
-            return _pessoaRepository.Alterar(pessoa);
-        }
-
-        public Task Excluir(Pessoa pessoa)
-        {
-            return _pessoaRepository.Excluir(pessoa);
-        }
-
         public Task<IEnumerable<Pessoa>> GetAll()
         {
             return _pessoaRepository.GetAll();
@@ -36,8 +26,26 @@ namespace FirstDecision.Business.Services
             return _pessoaRepository.GetById(id);
         }
 
+        public async Task Alterar(Pessoa pessoa)
+        {
+            if (!pessoa.CpfCnpj.IsValidCpfOrCnpj())
+                throw new ValidationException("O campo CPF/CNPJ é inválido");
+
+            _pessoaValidator.Validate(pessoa, options =>
+            {
+                options.ThrowOnFailures();
+                options.IncludeRuleSets("EmailValidator");
+                options.IncludeRuleSets("PessoaValidator");
+            });
+
+            await _pessoaRepository.Alterar(pessoa);
+        }
+
         public async Task Incluir(Pessoa pessoa)
         {
+            if (!pessoa.CpfCnpj.IsValidCpfOrCnpj())
+                throw new ValidationException("O campo CPF/CNPJ é inválido");
+
             _pessoaValidator.Validate(pessoa, options =>
             {
                 options.ThrowOnFailures();
@@ -46,6 +54,11 @@ namespace FirstDecision.Business.Services
             });
 
             await _pessoaRepository.Incluir(pessoa);
+        }
+
+        public Task Excluir(Pessoa pessoa)
+        {
+            return _pessoaRepository.Excluir(pessoa);
         }
     }
 }

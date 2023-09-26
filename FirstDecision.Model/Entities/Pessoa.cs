@@ -42,11 +42,7 @@ public partial class Pessoa
     [StringLength(10)]
     public string? Cep { get; set; }
 
-    [Column("CPF")]
-    [StringLength(11)]
-    public string? Cpf { get; set; }
-
-    [Column("CNPJ")]
+    [Column("CPFCNPJ")]
     [StringLength(14)]
-    public string? Cnpj { get; set; }
+    public string CpfCnpj { get; set; }
 }
