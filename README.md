@@ -33,8 +33,8 @@ Este projeto √© uma API RESTful para gerenciamento de pessoas, permitindo opera√
    dotnet build
 
 5. Execute o projeto:
-   ```bash
-   dotnet run
+      ```bash
+      dotnet run
 
 ## Endpoints da API
 - GET /pessoas: Retorna uma lista de todas as pessoas.
@@ -45,5 +45,5 @@ Este projeto √© uma API RESTful para gerenciamento de pessoas, permitindo opera√
 
 ## Testes 
 Para executar os testes, use o comando:
-```bash
-dotnet test
+   ```bash
+   dotnet test
