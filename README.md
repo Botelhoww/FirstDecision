@@ -17,9 +17,10 @@ Este projeto é uma API RESTful para gerenciamento de pessoas, permitindo opera�
 ## Instalação e Execução
 
 1. **Clone o Repositório:**
-   Abra o seu navegador e acesse o link do repositório:
-   ```plaintext
-   https://github.com/Botelhoww/FirstDecision.git
+2. **Abra o Projeto no Visual Studio**
+3. **Restaure os Pacotes NuGet**
+4. **Compile o Projeto**
+5. **Execute o Projeto**
 
 ## Endpoints da API
 - GET /pessoas: Retorna uma lista de todas as pessoas.
@@ -29,6 +30,6 @@ Este projeto é uma API RESTful para gerenciamento de pessoas, permitindo opera�
 - DELETE /pessoas/{id}: Exclui uma pessoa pelo ID.
 
 ## Testes 
-Para executar os testes, use o comando:
-   ```bash
-   dotnet test
+Para executar os testes, no Visual Studio:
+   1. Abra a janela "Test Explorer" (Test > Test Explorer).
+   2. Clique em "Run All".
