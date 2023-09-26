@@ -23,6 +23,7 @@ builder.Services.AddScoped<IPessoaRepository, PessoaRepository>();
 builder.Services.AddScoped<IPessoaService, PessoaService>();
 builder.Services.AddScoped<IValidator<Pessoa>, PessoaValidator>();
 builder.Services.AddScoped<IValidator<Pessoa>, EmailValidator>();
+builder.Services.AddScoped<CpfCnpjValidator>();
 
 var app = builder.Build();
 

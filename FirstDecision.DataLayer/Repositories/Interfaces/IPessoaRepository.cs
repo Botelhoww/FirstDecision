@@ -9,6 +9,7 @@ namespace FirstDecision.DataLayer.Repositories.Interfaces
         Task Excluir(Pessoa pessoa);
 
         Task<Pessoa> GetById(int id);
+        Task<bool> EmailAlreadyExists(string email);
         Task<IEnumerable<Pessoa>> GetAll();
     }
 }

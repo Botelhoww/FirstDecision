@@ -1,6 +1,6 @@
-﻿using FluentValidation;
-using FirstDecision.Business.Services.Interfaces;
+﻿using FirstDecision.Business.Services.Interfaces;
 using FirstDecision.Model.Entities;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstDecision.API.Controllers
@@ -44,11 +44,14 @@ namespace FirstDecision.API.Controllers
             }
             catch (ValidationException e)
             {
-                throw new ValidationException(e.Errors);
+                if (e.Errors.Count() > 0)
+                    throw new ValidationException(e.Errors);
+
+                return BadRequest(e.Message);
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                return StatusCode(500, e.Message);
             }
         }
 
@@ -61,9 +64,16 @@ namespace FirstDecision.API.Controllers
 
                 return Ok("Alteração feita com sucesso!");
             }
-            catch (Exception ex)
+            catch (ValidationException e)
             {
-                throw new Exception(ex.Message);
+                if (e.Errors.Count() > 0)
+                    throw new ValidationException(e.Errors);
+
+                return BadRequest(e.Message);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
             }
         }
 
@@ -81,9 +91,9 @@ namespace FirstDecision.API.Controllers
 
                 return Ok("Exclusão feita com sucesso!");
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw new Exception(ex.Message);
+                return StatusCode(500, e.Message);
             }
         }
     }

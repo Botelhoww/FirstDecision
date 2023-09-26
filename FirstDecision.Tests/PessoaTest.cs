@@ -17,7 +17,7 @@ namespace FirstDecision.Tests
         public void Setup()
         {
             _mockPessoaRepository = new Mock<IPessoaRepository>();
-            _pessoaService = new PessoaService(_mockPessoaRepository.Object, new PessoaValidator());
+            _pessoaService = new PessoaService(_mockPessoaRepository.Object, new PessoaValidator(), new CpfCnpjValidator());
         }
 
         [Test]
