@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Este projeto é uma API RESTful para gerenciamento de pessoas, permitindo operações de CRUD (Criação, Leitura, Atualização e Exclusão) em um banco de dados de pessoas.
+Este projeto é uma API RESTful para gerenciamento de pessoas, permitindo operações de CRUD (Criação, Leitura, Atualização e Exclusão).
 
 ## Tecnologias Utilizadas
 
@@ -17,24 +17,9 @@ Este projeto é uma API RESTful para gerenciamento de pessoas, permitindo opera�
 ## Instalação e Execução
 
 1. **Clone o Repositório:**
-   ```bash
-   git clone https://github.com/Botelhoww/FirstDecision.git
-
-2. Navegue até o diretório do projeto:
-   ```bash
-   cd seuprojeto
-
-3. Restaure os pacotes NuGet:
-   ```bash
-   dotnet restore
-
-4. Compile o projeto:
-   ```bash
-   dotnet build
-
-5. Execute o projeto:
-      ```bash
-      dotnet run
+   Abra o seu navegador e acesse o link do repositório:
+   ```plaintext
+   https://github.com/Botelhoww/FirstDecision.git
 
 ## Endpoints da API
 - GET /pessoas: Retorna uma lista de todas as pessoas.
