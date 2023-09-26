@@ -1,4 +1,5 @@
-﻿using FirstDecision.Business.Services.Interfaces;
+﻿using FluentValidation;
+using FirstDecision.Business.Services.Interfaces;
 using FirstDecision.Model.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,9 +42,13 @@ namespace FirstDecision.API.Controllers
 
                 return Ok("Pessoa cadastrada com sucesso!");
             }
-            catch (Exception ex)
+            catch (ValidationException e)
             {
-                throw new Exception(ex.Message);
+                throw new ValidationException(e.Errors);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
         }
 

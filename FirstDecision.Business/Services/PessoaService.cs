@@ -1,16 +1,19 @@
 ﻿using FirstDecision.Business.Services.Interfaces;
 using FirstDecision.DataLayer.Repositories.Interfaces;
 using FirstDecision.Model.Entities;
+using FluentValidation;
 
 namespace FirstDecision.Business.Services
 {
     public class PessoaService : IPessoaService
     {
         private readonly IPessoaRepository _pessoaRepository;
+        private readonly IValidator<Pessoa> _pessoaValidator;
 
-        public PessoaService(IPessoaRepository pessoaRepository)
+        public PessoaService(IPessoaRepository pessoaRepository, IValidator<Pessoa> pessoaValidator)
         {
             _pessoaRepository = pessoaRepository;
+            _pessoaValidator = pessoaValidator;
         }
 
         public Task Alterar(Pessoa pessoa)
@@ -35,8 +38,12 @@ namespace FirstDecision.Business.Services
 
         public async Task Incluir(Pessoa pessoa)
         {
-            //usar fluent validation pro nome e email not null
-            //usar fluent para validar email
+            _pessoaValidator.Validate(pessoa, options =>
+            {
+                options.ThrowOnFailures();
+                options.IncludeRuleSets("EmailValidator");
+                options.IncludeRuleSets("PessoaValidator");
+            });
 
             await _pessoaRepository.Incluir(pessoa);
         }
