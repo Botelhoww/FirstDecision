@@ -1,4 +1,11 @@
-using FirstDecision.API.Models;
+using FirstDecision.Business.Services;
+using FirstDecision.Business.Services.Interfaces;
+using FirstDecision.Business.Validators;
+using FirstDecision.DataLayer.Context;
+using FirstDecision.DataLayer.Repositories;
+using FirstDecision.DataLayer.Repositories.Interfaces;
+using FirstDecision.Model.Entities;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +18,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IPessoaRepository, PessoaRepository>();
+builder.Services.AddScoped<IPessoaService, PessoaService>();
+builder.Services.AddScoped<IValidator<Pessoa>, PessoaValidator>();
+builder.Services.AddScoped<IValidator<Pessoa>, EmailValidator>();
 
 var app = builder.Build();
 

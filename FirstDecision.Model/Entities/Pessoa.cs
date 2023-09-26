@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FirstDecision.API.Models;
+namespace FirstDecision.Model.Entities;
 
 [Index("Email", Name = "UQ__Pessoa__A9D105345444188A", IsUnique = true)]
 public partial class Pessoa
@@ -41,11 +42,7 @@ public partial class Pessoa
     [StringLength(10)]
     public string? Cep { get; set; }
 
-    [Column("CPF")]
-    [StringLength(11)]
-    public string? Cpf { get; set; }
-
-    [Column("CNPJ")]
+    [Column("CPFCNPJ")]
     [StringLength(14)]
-    public string? Cnpj { get; set; }
+    public string CpfCnpj { get; set; }
 }
