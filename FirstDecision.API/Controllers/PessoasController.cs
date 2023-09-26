@@ -1,6 +1,6 @@
-﻿using FluentValidation;
-using FirstDecision.Business.Services.Interfaces;
+﻿using FirstDecision.Business.Services.Interfaces;
 using FirstDecision.Model.Entities;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstDecision.API.Controllers
@@ -44,7 +44,10 @@ namespace FirstDecision.API.Controllers
             }
             catch (ValidationException e)
             {
-                return BadRequest(e.Errors);
+                if (e.Errors.Count() > 0)
+                    throw new ValidationException(e.Errors);
+
+                return BadRequest(e.Message);
             }
             catch (Exception e)
             {
@@ -63,7 +66,10 @@ namespace FirstDecision.API.Controllers
             }
             catch (ValidationException e)
             {
-                return BadRequest(e.Errors);
+                if (e.Errors.Count() > 0)
+                    throw new ValidationException(e.Errors);
+
+                return BadRequest(e.Message);
             }
             catch (Exception e)
             {

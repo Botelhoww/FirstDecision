@@ -31,6 +31,11 @@ namespace FirstDecision.DataLayer.Repositories
             return await _context.Pessoa.ToListAsync();
         }
 
+        public async Task<bool> EmailAlreadyExists(string email)
+        {
+            return await _context.Pessoa.AnyAsync(p => p.Email == email);
+        }
+
         public async Task<Pessoa> GetById(int id)
         {
             return await _context.Pessoa.Where(p => p.Id == id).FirstOrDefaultAsync();

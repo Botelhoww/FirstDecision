@@ -45,6 +45,11 @@ namespace FirstDecision.Business.Services
 
         public async Task Incluir(Pessoa pessoa)
         {
+            bool emailExists = await _pessoaRepository.EmailAlreadyExists(pessoa.Email);
+
+            if (emailExists)
+                throw new ValidationException("O e-mail já está em uso.");
+
             _cpfCnpjValidator.Validate(pessoa.CpfCnpj);
 
             _pessoaValidator.Validate(pessoa, options =>
