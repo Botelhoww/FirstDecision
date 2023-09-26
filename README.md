@@ -7,7 +7,7 @@ Este projeto √© uma API RESTful para gerenciamento de pessoas, permitindo opera√
 ## Tecnologias Utilizadas
 
 - **Linguagem:** C#
-- **Framework:** .NET 5
+- **Framework:** .NET 7
 - **ORM:** Entity Framework Core
 - **Banco de Dados:** SQL Server
 - **Testes:** NUnit
