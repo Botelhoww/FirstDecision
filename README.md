@@ -20,18 +20,21 @@ Este projeto é uma API RESTful para gerenciamento de pessoas, permitindo opera�
    ```bash
    git clone https://github.com/Botelhoww/FirstDecision.git
 
-# Navegue até o diretório do projeto:
-cd seuprojeto
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd seuprojeto
 
-# Restaure os pacotes NuGet:
-dotnet restore
+3. Restaure os pacotes NuGet:
+   ```bash
+   dotnet restore
 
-# Compile o projeto:
-dotnet build
+4. Compile o projeto:
+   ```bash
+   dotnet build
 
-# Execute o projeto:
-dotnet run
-
+5. Execute o projeto:
+   ```bash
+   dotnet run
 
 ## Endpoints da API
 - GET /pessoas: Retorna uma lista de todas as pessoas.
@@ -40,7 +43,7 @@ dotnet run
 - PUT /pessoas: Atualiza os dados de uma pessoa.
 - DELETE /pessoas/{id}: Exclui uma pessoa pelo ID.
 
-
 ## Testes 
 Para executar os testes, use o comando:
+```bash
 dotnet test
