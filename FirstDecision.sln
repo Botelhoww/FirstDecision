@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstDecision.DataLayer", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstDecision.Model", "FirstDecision.Model\FirstDecision.Model.csproj", "{3DB346D6-BD2E-4148-9C35-79918DF9E5BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstDecision.Tests", "FirstDecision.Tests\FirstDecision.Tests.csproj", "{406A0AB9-EA2B-4F30-A66A-B3176161AC67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{3DB346D6-BD2E-4148-9C35-79918DF9E5BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DB346D6-BD2E-4148-9C35-79918DF9E5BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DB346D6-BD2E-4148-9C35-79918DF9E5BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{406A0AB9-EA2B-4F30-A66A-B3176161AC67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{406A0AB9-EA2B-4F30-A66A-B3176161AC67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{406A0AB9-EA2B-4F30-A66A-B3176161AC67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{406A0AB9-EA2B-4F30-A66A-B3176161AC67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
