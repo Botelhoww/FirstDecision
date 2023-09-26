@@ -44,11 +44,11 @@ namespace FirstDecision.API.Controllers
             }
             catch (ValidationException e)
             {
-                throw new ValidationException(e.Errors);
+                return BadRequest(e.Errors);
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                return StatusCode(500, e.Message);
             }
         }
 
@@ -61,9 +61,13 @@ namespace FirstDecision.API.Controllers
 
                 return Ok("Alteração feita com sucesso!");
             }
-            catch (Exception ex)
+            catch (ValidationException e)
             {
-                throw new Exception(ex.Message);
+                return BadRequest(e.Errors);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
             }
         }
 
@@ -81,9 +85,9 @@ namespace FirstDecision.API.Controllers
 
                 return Ok("Exclusão feita com sucesso!");
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw new Exception(ex.Message);
+                return StatusCode(500, e.Message);
             }
         }
     }

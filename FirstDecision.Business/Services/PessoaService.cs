@@ -1,5 +1,6 @@
 ﻿using FirstDecision.Business.Extensions;
 using FirstDecision.Business.Services.Interfaces;
+using FirstDecision.Business.Validators;
 using FirstDecision.DataLayer.Repositories.Interfaces;
 using FirstDecision.Model.Entities;
 using FluentValidation;
@@ -10,11 +11,13 @@ namespace FirstDecision.Business.Services
     {
         private readonly IPessoaRepository _pessoaRepository;
         private readonly IValidator<Pessoa> _pessoaValidator;
+        private readonly CpfCnpjValidator _cpfCnpjValidator;
 
-        public PessoaService(IPessoaRepository pessoaRepository, IValidator<Pessoa> pessoaValidator)
+        public PessoaService(IPessoaRepository pessoaRepository, IValidator<Pessoa> pessoaValidator, CpfCnpjValidator cpfCnpjValidator)
         {
             _pessoaRepository = pessoaRepository;
             _pessoaValidator = pessoaValidator;
+            _cpfCnpjValidator = cpfCnpjValidator;
         }
         public Task<IEnumerable<Pessoa>> GetAll()
         {
@@ -28,8 +31,7 @@ namespace FirstDecision.Business.Services
 
         public async Task Alterar(Pessoa pessoa)
         {
-            if (!pessoa.CpfCnpj.IsValidCpfOrCnpj())
-                throw new ValidationException("O campo CPF/CNPJ é inválido");
+            _cpfCnpjValidator.Validate(pessoa.CpfCnpj);
 
             _pessoaValidator.Validate(pessoa, options =>
             {
@@ -43,8 +45,7 @@ namespace FirstDecision.Business.Services
 
         public async Task Incluir(Pessoa pessoa)
         {
-            if (!pessoa.CpfCnpj.IsValidCpfOrCnpj())
-                throw new ValidationException("O campo CPF/CNPJ é inválido");
+            _cpfCnpjValidator.Validate(pessoa.CpfCnpj);
 
             _pessoaValidator.Validate(pessoa, options =>
             {
