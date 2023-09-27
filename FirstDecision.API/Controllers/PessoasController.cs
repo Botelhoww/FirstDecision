@@ -77,7 +77,7 @@ namespace FirstDecision.API.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> ExcluirPessoa(int id)
         {
             try
